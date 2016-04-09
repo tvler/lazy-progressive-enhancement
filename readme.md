@@ -6,15 +6,15 @@ Also works on iframes.
 
 HTML
 ```html
-<noscript><img src="..."/></noscript>
+<noscript><img src="..."></noscript>
 ```
 
 JS
 ```js
-loadMedia()
+loadMedia();
 ```
 
 End result HTML
 ```html
-<img src="..."/>
+<img src="...">
 ```
