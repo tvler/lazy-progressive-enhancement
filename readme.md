@@ -26,7 +26,7 @@ End result HTML
 ## Load specific images
 
 You can specify what images to load by passing in either
- 1. A CSS selector string (use if calling the function before DOMContentLoaded)
+ 1. A CSS selector string (use if calling the function before `DOMContentLoaded`)
  2. A NodeList (from something like `document.querySelectorAll`)
  3. A singular Element (from something like `document.querySelector`)
 
