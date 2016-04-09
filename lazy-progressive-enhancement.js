@@ -10,6 +10,8 @@
  */
 function loadMedia(media, onload) {
 
+   "use strict";
+
    /**
     * Creates a new element based of noscript's contents.
     * Hooks the onload function.
