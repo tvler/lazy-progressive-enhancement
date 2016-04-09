@@ -46,3 +46,20 @@ End result HTML
 <img src="...">
 <noscript id="not-this-one"><img src="..."></noscript>
 ```
+
+## onload function
+
+You can hook an onload function for every loaded image
+
+JS
+```js
+loadMedia('#this-one', (function() {
+  this.classList.add('loaded');
+));
+```
+
+End result HTML
+```html
+<img class="loaded" src="...">
+<noscript id="not-this-one"><img src="..."></noscript>
+```
