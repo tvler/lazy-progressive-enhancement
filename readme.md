@@ -4,6 +4,10 @@ A lazy image loading javascript function which enforces progressive enhancement 
 
 Also works on iframes.
 
+  > - [Basic usage](#basic-usage)
+  > - [Load specific images](#load-specific-images)
+  > - [onload function](#onload-function)
+
 ## Basic usage
 
 By default, the function targets every `noscript` element on the page
