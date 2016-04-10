@@ -4,7 +4,7 @@ A lazy image loading javascript function which enforces progressive enhancement 
 
 ### Design
  - Written in pure JS -- no dependencies. 
- - Designed to *enforce* pregressive enhancement and accessibility. \
+ - Designed to *enforce* pregressive enhancement and accessibility.
  - Not a framework, not a library, just a function.
  - Also works on iframes.
 
