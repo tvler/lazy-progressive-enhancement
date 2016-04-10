@@ -10,9 +10,9 @@ A lazy image loading javascript function which enforces progressive enhancement 
 ### [Download, copy-pase, whatever ;)](lazy-progressive-enhancement.min.js)
 
 ### Contents
- > - [Basic usage](#basic-usage)
- > - [Load specific images](#load-specific-images)
- > - [onload function](#onload-function)
+ - [Basic usage](#basic-usage)
+ - [Load specific images](#load-specific-images)
+ - [onload function](#onload-function)
 
 ## Basic usage
 
