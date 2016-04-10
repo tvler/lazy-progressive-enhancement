@@ -2,13 +2,15 @@
 
 A lazy image loading javascript function which enforces progressive enhancement and valid HTML.
 
+Written in pure JS -- no dependencies. 
+
 Also works on iframes.
 
-  > - [Basic usage and design](#basic-usage)
+  > - [Basic usage](#basic-usage)
   > - [Load specific images](#load-specific-images)
   > - [onload function](#onload-function)
 
-## Basic usage and design
+## Basic usage
 
 By default, the function targets every `noscript` element on the page.
 
