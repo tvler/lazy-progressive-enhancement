@@ -10,7 +10,7 @@ Most lazyload image libraries work by having the user specify an image's source 
  - Not a framework, not a library, just a function.
  - Also works on iframes.
 
-### [Download, copy-pase, whatever ;)](lazy-progressive-enhancement.min.js)
+### [Download, copy-paste, whatever ;)](lazy-progressive-enhancement.min.js)
 
 ### Contents
  - [Basic usage](#basic-usage)
