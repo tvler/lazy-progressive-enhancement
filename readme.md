@@ -4,17 +4,19 @@ A lazy image loading javascript function which enforces progressive enhancement 
 
 Also works on iframes.
 
-  > - [Basic usage](#basic-usage)
+  > - [Basic usage and design](#basic-usage)
   > - [Load specific images](#load-specific-images)
   > - [onload function](#onload-function)
 
-## Basic usage
+## Basic usage and design
 
-By default, the function targets every `noscript` element on the page
+By default, the function targets every `noscript` element on the page.
+
+Any attributes the image has in noscript (`class` / `id` / etc) are kept.
 
 `HTML`
 ```html
-<noscript><img src="..."></noscript>
+<noscript><img class="hero-image" src="..."></noscript>
 ```
 
 `JS`
@@ -24,7 +26,7 @@ loadMedia();
 
 `End result HTML`
 ```html
-<img src="...">
+<img class="hero-image" src="...">
 ```
 
 ## Load specific images
