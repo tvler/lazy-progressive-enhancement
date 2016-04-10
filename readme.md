@@ -2,11 +2,11 @@
 
 A lazy image loading javascript function which enforces progressive enhancement and valid HTML.
 
-Most lazyload image libraries work by having the user specify an image's source file in a data-attribute, and setting its `src` after a page is loaded. This is [invalid HTML](https://www.w3.org/TR/html5/embedded-content-0.html#attr-img-src) and disregards users who don't have a javascript-enabled broswer.
+Most lazyload image libraries work by having the user specify an image's source file in a data-attribute, and setting its `src` after a page is loaded. This is [invalid HTML](https://www.w3.org/TR/html5/embedded-content-0.html#attr-img-src) and disregards users who don't have a javascript-enabled browser.
 
 ### Benefits of lazy-progressive-enhancement.js
- - Designed to *enforce* progressive enhancement and valid HTML. 
- - Written in pure JS -- no dependencies. 
+ - Designed to *enforce* progressive enhancement and valid HTML.
+ - Written in pure JS -- no dependencies.
  - Not a framework, not a library, just a function.
  - Also works on iframes.
 
