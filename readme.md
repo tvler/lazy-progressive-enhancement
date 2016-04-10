@@ -12,17 +12,17 @@ Also works on iframes.
 
 By default, the function targets every `noscript` element on the page
 
-HTML
+`HTML`
 ```html
 <noscript><img src="..."></noscript>
 ```
 
-JS
+`JS`
 ```js
 loadMedia();
 ```
 
-End result HTML
+`End result HTML`
 ```html
 <img src="...">
 ```
@@ -34,18 +34,18 @@ You can specify what images to load by passing in either
  2. A NodeList (from something like `document.querySelectorAll`)
  3. A singular Element (from something like `document.querySelector`)
 
-HTML
+`HTML`
 ```html
 <noscript id="this-one"><img src="..."></noscript>
 <noscript id="not-this-one"><img src="..."></noscript>
 ```
 
-JS
+`JS`
 ```js
 loadMedia('#this-one');
 ```
 
-End result HTML
+`End result HTML`
 ```html
 <img src="...">
 <noscript id="not-this-one"><img src="..."></noscript>
@@ -55,14 +55,14 @@ End result HTML
 
 You can hook an onload function for every loaded image
 
-JS
+`JS`
 ```js
 loadMedia('#this-one', (function() {
   this.classList.add('loaded');
 ));
 ```
 
-End result HTML
+`End result HTML`
 ```html
 <img class="loaded" src="...">
 <noscript id="not-this-one"><img src="..."></noscript>
