@@ -25,7 +25,7 @@ Any attributes the image has in noscript (`class` / `id` / `alt` / etc) are kept
 
 `HTML`
 ```html
-<noscript><img class="hero-image" src="..."></noscript>
+<noscript><img alt="hello!" src="..."></noscript>
 ```
 
 `JS`
@@ -35,7 +35,7 @@ loadMedia();
 
 `End result HTML`
 ```html
-<img class="hero-image" src="...">
+<img alt="hello!" src="...">
 ```
 
 ## Load specific images
