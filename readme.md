@@ -2,13 +2,13 @@
 
 A lazy image loading javascript function which enforces progressive enhancement and valid HTML.
 
-###### Design
+### Design
  - Written in pure JS -- no dependencies. 
  - Designed to *enforce* pregressive enhancement and accessibility. \
  - Not a framework, not a library, just a function.
  - Also works on iframes.
 
-###### readme contents
+### Contents
  > - [Basic usage](#basic-usage)
  > - [Load specific images](#load-specific-images)
  > - [onload function](#onload-function)
