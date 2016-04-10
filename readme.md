@@ -35,8 +35,8 @@ loadMedia();
 
 You can specify what images to load by passing in either
  1. A CSS selector string (use if calling the function before `DOMContentLoaded`)
- 2. A NodeList (from something like `document.querySelectorAll`)
- 3. A singular Element (from something like `document.querySelector`)
+ 2. A NodeList of `noscript`s (from something like `document.querySelectorAll`)
+ 3. A singular `noscript` Element (from something like `document.querySelector`)
 
 `HTML`
 ```html
