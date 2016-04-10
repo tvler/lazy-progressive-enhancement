@@ -2,9 +2,10 @@
 
 A lazy image loading javascript function which enforces progressive enhancement and valid HTML.
 
-Written in pure JS -- no dependencies. 
-
-Also works on iframes.
+ - Written in pure JS -- no dependencies. 
+ - Designed to *enforce* pregressive enhancement and accessibility. \
+ - Not a framework, not a library, just a function.
+ - Also works on iframes.
 
   > - [Basic usage](#basic-usage)
   > - [Load specific images](#load-specific-images)
@@ -14,7 +15,7 @@ Also works on iframes.
 
 By default, the function targets every `noscript` element on the page.
 
-Any attributes the image has in noscript (`class` / `id` / etc) are kept.
+Any attributes the image has in noscript (`class` / `id` / `alt` / etc) are kept.
 
 `HTML`
 ```html
