@@ -53,6 +53,6 @@ function loadMedia(media, onload) {
    if (document.readyState !== 'loading') {
       onwheneva();
    } else {
-      document.addEventListener("DOMContentLoaded", onwheneva);
+      document.addEventListener('DOMContentLoaded', onwheneva);
    }
 }
