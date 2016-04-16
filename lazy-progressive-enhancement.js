@@ -34,7 +34,7 @@ function loadMedia(media, onload) {
       }
 
       for (var i = 0, noscript, img; i < media.length; i++) {
-         (img = document.createElement('div')).innerHTML = (noscript = media[i]).innerHTML;
+         (img = document.createElement('div')).innerHTML = (noscript = media[i]).textContent;
          img.firstChild.onload = onload;
          noscript.parentElement.replaceChild(img.firstChild, noscript);
       }
