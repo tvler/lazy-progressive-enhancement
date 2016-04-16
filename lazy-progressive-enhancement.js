@@ -33,8 +33,8 @@ function loadMedia(media, onload) {
          media = document.querySelectorAll(media);
       }
 
-      for (var i = 0, noscript, img; i < media.length;) {
-         (img = document.createElement('div')).innerHTML = (noscript = media[i++]).textContent;
+      for (var i = 0, noscript, img; i < media.length; i++) {
+         (img = document.createElement('div')).innerHTML = (noscript = media[i]).innerHTML;
          img.firstChild.onload = onload;
          noscript.parentElement.replaceChild(img.firstChild, noscript);
       }
