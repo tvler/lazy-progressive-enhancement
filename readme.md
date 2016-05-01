@@ -2,6 +2,8 @@
 
 ### [Download, copy-paste, whatever ;)](lazy-progressive-enhancement.min.js)
 
+**[View website](http://tylerdeitz.co/lazy-progressive-enhancement/)**
+
 A lazy image loader designed to enforce progressive enhancement and valid HTML.
 
 ``` js
