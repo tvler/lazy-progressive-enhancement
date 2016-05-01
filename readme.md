@@ -109,4 +109,4 @@ loadMedia(null, null, true)
 ```
 
 ## Thanks
-@agarzola, @raglannyc
+[@agarzola](/agarzola), [@raglannyc](/raglannyc)
