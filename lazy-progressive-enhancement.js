@@ -76,9 +76,9 @@ function loadMedia(media, onloadfn, scroll) {
     // Fires replaceNoscript either on DOMContentLoaded or after
     // @see https://gist.github.com/tvler/8fd53d11ed775ebc72419bb5d96b8696
     // @author tvler
-    var onwheneva = (function() {
+    var onwheneva = function() {
       replaceNoscript(media);
-    });
+    }
 
    if (document.readyState !== 'loading') {
       onwheneva();
