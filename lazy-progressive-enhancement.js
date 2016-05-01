@@ -46,7 +46,7 @@ function loadMedia(media, onloadfn, scroll) {
             onloadfn && onloadfn();
          }
       }, 100);
-   };
+   }
 
    function replaceNoscript(media) {
       var noscript, img,
