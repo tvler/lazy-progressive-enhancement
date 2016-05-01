@@ -84,15 +84,14 @@ You can hook an onload function for every loaded image
 
 `JS`
 ```js
-loadMedia('#this-one', (function() {
-  this.classList.add('loaded');
-));
+loadMedia(null, function() {
+   this.classList.add('loaded')
+})
 ```
 
 `End result HTML`
 ```html
 <img class="loaded" src="...">
-<noscript id="not-this-one"><img src="..."></noscript>
 ```
 
 ## Scroll-based loading
