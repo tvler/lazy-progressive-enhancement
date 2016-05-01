@@ -35,7 +35,7 @@ function loadMedia(media, onloadfn, scroll) {
    function intervalFn (el, onloadfn) {
       return window.setInterval(function() {
          var rect = el.getBoundingClientRect(),
-             offset = 100;
+             offset = 150;
          if (
             (rect.bottom >= -offset && rect.top - window.innerHeight < offset) &&
             (rect.right >= -offset && rect.left - window.innerWidth < offset)
