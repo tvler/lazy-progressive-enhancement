@@ -107,3 +107,6 @@ Will be updated to use [intersection observers](https://github.com/WICG/Intersec
 ``` js
 loadMedia(null, null, true)
 ```
+
+## Thanks
+@agarzola, @raglannyc
