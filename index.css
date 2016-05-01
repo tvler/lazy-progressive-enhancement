@@ -33,11 +33,10 @@ section {
    max-width: 550px;
    margin-left: auto;
    margin-right: auto;
-   padding-left: 20px;
-   padding-right: 20px;
+   padding-left: 30px;
+   padding-right: 30px;
    line-height: 1.3em;
    font-size: 14px;
-   margin-bottom: 80px;
 }
 
 h1 {
@@ -83,6 +82,7 @@ a {
 
 .title-link {
    display: block;
+   padding-top: 60px;
 }
 
 .js-run {
@@ -186,4 +186,10 @@ li a {
    color: #7A7C7D;
    text-decoration: none;
    font-weight: 600;
+}
+
+@media (max-width: 800px) {
+   section:first-child .title-link {
+      padding-top: 0;
+   }
 }
