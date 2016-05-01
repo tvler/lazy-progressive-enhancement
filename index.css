@@ -120,11 +120,6 @@ ul {
    background: #F4F3F3;
    padding: 10px 20px 10px 40px;
    border-radius: 8px;
-   list-style: initial;
-}
-
-#contents li::before {
-   content: none;
 }
 
 .inline {
