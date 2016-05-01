@@ -34,14 +34,16 @@ function loadMedia(media, onloadfn, scroll) {
 
    function intervalFn (el, onloadfn) {
       return window.setInterval(function() {
-         var rect = el.getBoundingClientRect();
+         var rect = el.getBoundingClientRect(),
+             offset = 100;
          if (
-            (rect.bottom >= 0 && rect.top - window.innerHeight < 0) &&
-            (rect.right >= 0 && rect.left - window.innerWidth < 0)
+            (rect.bottom >= -offset && rect.top - window.innerHeight < offset) &&
+            (rect.right >= -offset && rect.left - window.innerWidth < offset)
          ) {
             window.clearInterval(el.getAttribute('data-intervalid'));
             el.srcset = el.getAttribute('data-srcset');
             el.src = el.getAttribute('data-src');
+            console.log('loaded '+el);
             onloadfn && onloadfn();
          }
       }, 100);
