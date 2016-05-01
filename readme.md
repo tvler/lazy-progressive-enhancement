@@ -108,5 +108,10 @@ Will be updated to use [intersection observers](https://github.com/WICG/Intersec
 loadMedia(null, null, true)
 ```
 
+## Build
+`uglifyjs lazy-progressive-enhancement.js -m --comments > lazy-progressive-enhancement.min.js`
+
+[The MIT License (MIT)](LICENSE)
+
 ## Thanks
 [@agarzola](https://github.com/agarzola), [@raglannyc](https://github.com/raglannyc)
