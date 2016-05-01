@@ -84,15 +84,14 @@ You can hook an onload function for every loaded image
 
 `JS`
 ```js
-loadMedia('#this-one', (function() {
-  this.classList.add('loaded');
-));
+loadMedia(null, function() {
+   this.classList.add('loaded')
+})
 ```
 
 `End result HTML`
 ```html
 <img class="loaded" src="...">
-<noscript id="not-this-one"><img src="..."></noscript>
 ```
 
 ## Scroll-based loading
@@ -108,5 +107,11 @@ Will be updated to use [intersection observers](https://github.com/WICG/Intersec
 loadMedia(null, null, true)
 ```
 
+## Build
+`uglifyjs lazy-progressive-enhancement.js -m --comments > lazy-progressive-enhancement.min.js`
+
 ## Thanks
 [@agarzola](https://github.com/agarzola), [@raglannyc](https://github.com/raglannyc)
+
+--
+[The MIT License (MIT)](LICENSE)
