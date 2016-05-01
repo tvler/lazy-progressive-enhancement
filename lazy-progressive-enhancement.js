@@ -1,3 +1,10 @@
+/* @license
+lazy-progressive-enhancement.js
+https://github.com/tvler/lazy-progressive-enhancement
+The MIT License (MIT)
+Copyright (c) 2016 Tyler Deitz
+*/
+
 /**
  * Loads media, hooking an optional onload function,
  * optionally loading when scrolled into the viewport.
