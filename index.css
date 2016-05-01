@@ -175,6 +175,34 @@ img {
    height: 100%;
 }
 
+figcaption {
+   position: absolute;
+   right: 0;
+   bottom: 0;
+   opacity: 0;
+   pointer-events: none;
+}
+
+img + figcaption {
+   opacity: .7;
+   pointer-events: all;
+}
+
+figcaption a {
+   background: white;
+   padding: 2px 4px;
+   color: #333;
+   font-weight: 300;
+   text-decoration: none;
+   display: block;
+   position: relative;
+   font-size: 11px;
+}
+
+figcaption a:hover {
+   color: #0027FF;
+}
+
 strong {
    display: block;
    margin-top: 14px;
