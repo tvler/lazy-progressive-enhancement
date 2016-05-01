@@ -1,6 +1,21 @@
 # lazy-progressive-enhancement.js
 
+### [Download, copy-paste, whatever ;)](lazy-progressive-enhancement.min.js)
+
 A lazy image loader designed to enforce progressive enhancement and valid HTML.
+
+``` js
+loadMedia (
+   element,
+   onload,
+   scroll
+)
+```
+*element:* CSS String | NodeList | Element
+
+*onload:* Function (optional)
+
+*scroll:* Boolean (optional) – loads image when visible
 
 Most lazyload image libraries work by having the user specify an image's source file in a data-attribute, which sets its `src` after a page is loaded. This is [invalid HTML](https://www.w3.org/TR/html5/embedded-content-0.html#attr-img-src) and disregards users who don't have a javascript-enabled browser.
 
@@ -9,8 +24,6 @@ Most lazyload image libraries work by having the user specify an image's source 
  - Written in pure JS -- no dependencies.
  - Not a framework, not a library, just a function.
  - Also works on iframes.
-
-### [Download, copy-paste, whatever ;)](lazy-progressive-enhancement.min.js)
 
 ### Contents
  - [Basic usage](#basic-usage)
@@ -77,4 +90,17 @@ loadMedia('#this-one', (function() {
 ```html
 <img class="loaded" src="...">
 <noscript id="not-this-one"><img src="..."></noscript>
+```
+
+## Scroll-based loading
+
+There's a default function to load images when they're scrolled into view.
+
+This is a general solution, creating your own scroll-based loading functionality may be more performant.
+
+Will be updated to use [intersection observers](https://github.com/WICG/IntersectionObserver) when it becomes standardized.
+
+`JS`
+``` js
+loadMedia(null, null, true)
 ```
