@@ -113,6 +113,5 @@ loadMedia(null, null, true)
 ## Thanks
 [@agarzola](https://github.com/agarzola), [@raglannyc](https://github.com/raglannyc)
 
--
-
+--
 [The MIT License (MIT)](LICENSE)
