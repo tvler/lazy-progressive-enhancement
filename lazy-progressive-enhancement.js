@@ -43,7 +43,6 @@ function loadMedia(media, onloadfn, scroll) {
             window.clearInterval(el.getAttribute('data-intervalid'));
             el.srcset = el.getAttribute('data-srcset');
             el.src = el.getAttribute('data-src');
-            console.log('loaded '+el);
             onloadfn && onloadfn();
          }
       }, 100);
