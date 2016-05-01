@@ -29,6 +29,7 @@ Most lazyload image libraries work by having the user specify an image's source 
  - [Basic usage](#basic-usage)
  - [Load specific images](#load-specific-images)
  - [onload function](#onload-function)
+ - [Scroll-based loading](#scroll-based-loading)
 
 ## Basic usage
 
