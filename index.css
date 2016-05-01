@@ -40,14 +40,6 @@ section {
    margin-bottom: 80px;
 }
 
-section:not(.center):nth-child(even) {
-   margin-right: 0;
-}
-
-section:not(.center):nth-child(odd) {
-   margin-left: 0;
-}
-
 h1 {
    font-size: 20px;
    color: #333;
