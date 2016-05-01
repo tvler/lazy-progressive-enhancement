@@ -32,6 +32,7 @@
          <li><a href='#basic'>Basic usage</a>
          <li><a href='#benefits'>Benefits of lazy-progressive-enhancement.js</a>
          <li><a href='#load'>Load specific images</a>
+         <li><a href='#onload'>onload function</a>
          <li><a href='#scroll'>Scroll-based loading</a>
       </ul>
    </section>
@@ -113,6 +114,19 @@
          <pre class="inline">&lt;img src="..."&gt;
 &lt;img src="..."&gt;</pre>
       </div>
+   </section>
+
+   <section>
+      <a href="#onload" class="title-link" id="onload"><h2>onload function</h2></a>
+      <p>You can hook an onload function for every loaded image.</p>
+      <p>This may help animate the image by styling it onload.</p>
+      <strong>Run:</strong>
+      <pre>loadMedia('#this-one', (function() {
+  this.classList.add('loaded');
+));</pre>
+      <strong>Output:</strong>
+      <pre>&lt;img class="loaded" src="..."&gt;
+&lt;noscript id="not-this-one"&gt;&lt;img src="..."&gt;&lt;/noscript&gt;</pre>
    </section>
 
    <section>
