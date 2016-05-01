@@ -15,11 +15,11 @@ loadMedia(
    scroll
 )
 ```
-*element:* CSS String | NodeList | Element
+**element:** *CSS String | NodeList | Element (optional)* – loads all images if not set
 
-*onload:* Function (optional)
+**onload:** *Function (optional)*
 
-*scroll:* Boolean (optional) – loads image when visible
+**scroll:** *Boolean (optional)* – loads image when visible
 
 Most lazyload image libraries work by having the user specify an image's source file in a data-attribute, which sets its `src` after a page is loaded. This is [invalid HTML](https://www.w3.org/TR/html5/embedded-content-0.html#attr-img-src) and disregards users who don't have a javascript-enabled browser.
 
