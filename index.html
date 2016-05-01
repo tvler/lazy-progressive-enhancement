@@ -121,9 +121,9 @@
       <p>You can hook an onload function for every loaded image.</p>
       <p>This may help animate the image by styling it onload.</p>
       <strong>Run:</strong>
-      <pre>loadMedia('#this-one', (function() {
+      <pre>loadMedia('#this-one', () => {
   this.classList.add('loaded');
-));</pre>
+);</pre>
       <strong>Output:</strong>
       <pre>&lt;img class="loaded" src="..."&gt;
 &lt;noscript id="not-this-one"&gt;
