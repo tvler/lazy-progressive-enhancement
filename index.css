@@ -210,6 +210,10 @@ strong {
    color: #7A7C7D;
 }
 
+em {
+   vertical-align: middle;
+}
+
 li a {
    color: #7A7C7D;
    text-decoration: none;
