@@ -21,8 +21,6 @@ function loadMedia(media, onloadfn, scroll) {
 
    'use strict';
 
-   var srcset;
-
    function parseMedia(media) {
       if (media == null) {
          media = document.querySelectorAll('noscript');
@@ -34,7 +32,7 @@ function loadMedia(media, onloadfn, scroll) {
       return media;
    }
 
-   function intervalFn (el) {
+   function intervalFn (el, isSrcset) {
       return window.setInterval(function() {
          var rect = el.getBoundingClientRect(),
              offset = 300;
@@ -44,14 +42,14 @@ function loadMedia(media, onloadfn, scroll) {
          ) {
             window.clearInterval(el.getAttribute('data-intervalid'));
             el.onload = onloadfn;
-            srcset = el.getAttribute('data-srcset') && (el.srcset = srcset);
+            isSrcset && (el.srcset = isSrcset);
             el.src = el.getAttribute('data-src');
          }
       }, 100);
    }
 
    function replaceNoscript(media) {
-      var noscript, img,
+      var noscript, img, srcset,
 
       // Smallest data URI image possible for a transparent image
       // @see http://stackoverflow.com/questions/6018611/smallest-data-uri-image-possible-for-a-transparent-image
@@ -64,11 +62,11 @@ function loadMedia(media, onloadfn, scroll) {
 
          if (scroll) {
             img.setAttribute('data-src', img.getAttribute('src'));
-            srcset = img.getAttribute('srcset') && img.setAttribute('data-srcset', srcset);
+            (srcset = img.getAttribute('srcset')) && img.setAttribute('data-srcset', srcset);
             img.src = tempSrc;
             img.removeAttribute('srcset');
             noscript.parentElement.replaceChild(img, noscript);
-            img.setAttribute('data-intervalid', intervalFn(img));
+            img.setAttribute('data-intervalid', intervalFn(img, srcset));
          } else {
             noscript.parentElement.replaceChild(img, noscript);
             img.onload = onloadfn;
