@@ -49,7 +49,7 @@ Any attributes the image has in noscript (`class` / `id` / `alt` / etc) are kept
 
 `JS`
 ```js
-loadMedia();
+loadMedia()
 ```
 
 `End result HTML`
@@ -72,7 +72,7 @@ You can specify what images to load by passing in either
 
 `JS`
 ```js
-loadMedia('#this-one');
+loadMedia('#this-one')
 ```
 
 `End result HTML`
