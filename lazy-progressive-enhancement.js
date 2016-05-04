@@ -70,8 +70,8 @@ function loadMedia(media, onloadfn, scroll) {
             noscript.parentElement.replaceChild(img, noscript);
             img.setAttribute('data-intervalid', intervalFn(img, onloadfn));
          } else {
-            img.onload = onloadfn;
             noscript.parentElement.replaceChild(img, noscript);
+            img.onload = onloadfn;
          }
       }
    }
