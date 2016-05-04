@@ -21,6 +21,8 @@ function loadMedia(media, onloadfn, scroll) {
 
    'use strict';
 
+   var srcset;
+
    function parseMedia(media) {
       if (media == null) {
          media = document.querySelectorAll('noscript');
@@ -42,7 +44,7 @@ function loadMedia(media, onloadfn, scroll) {
          ) {
             window.clearInterval(el.getAttribute('data-intervalid'));
             el.onload = onloadfn;
-            el.srcset = el.getAttribute('data-srcset');
+            (srcset = el.getAttribute('data-srcset')) && (el.srcset = srcset);
             el.src = el.getAttribute('data-src');
          }
       }, 100);
@@ -62,8 +64,9 @@ function loadMedia(media, onloadfn, scroll) {
 
          if (scroll) {
             img.setAttribute('data-src', img.getAttribute('src'));
-            img.setAttribute('data-srcset', img.getAttribute('srcset') || '');
-            img.src = img.srcset = tempSrc;
+            (srcset = img.getAttribute('srcset')) && img.setAttribute('data-srcset', srcset);
+            img.src = tempSrc;
+            img.removeAttribute('srcset');
             noscript.parentElement.replaceChild(img, noscript);
             img.setAttribute('data-intervalid', intervalFn(img, onloadfn));
          } else {
