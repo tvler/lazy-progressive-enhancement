@@ -44,7 +44,7 @@ function loadMedia(media, onloadfn, scroll) {
          ) {
             window.clearInterval(el.getAttribute('data-intervalid'));
             el.onload = onloadfn;
-            (srcset = el.getAttribute('data-srcset')) && (el.srcset = srcset);
+            srcset = el.getAttribute('data-srcset') && (el.srcset = srcset);
             el.src = el.getAttribute('data-src');
          }
       }, 100);
@@ -64,7 +64,7 @@ function loadMedia(media, onloadfn, scroll) {
 
          if (scroll) {
             img.setAttribute('data-src', img.getAttribute('src'));
-            (srcset = img.getAttribute('srcset')) && img.setAttribute('data-srcset', srcset);
+            srcset = img.getAttribute('srcset') && img.setAttribute('data-srcset', srcset);
             img.src = tempSrc;
             img.removeAttribute('srcset');
             noscript.parentElement.replaceChild(img, noscript);
