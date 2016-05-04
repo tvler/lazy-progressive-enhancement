@@ -34,7 +34,7 @@ function loadMedia(media, onloadfn, scroll) {
       return media;
    }
 
-   function intervalFn (el, onloadfn) {
+   function intervalFn (el) {
       return window.setInterval(function() {
          var rect = el.getBoundingClientRect(),
              offset = 300;
@@ -68,7 +68,7 @@ function loadMedia(media, onloadfn, scroll) {
             img.src = tempSrc;
             img.removeAttribute('srcset');
             noscript.parentElement.replaceChild(img, noscript);
-            img.setAttribute('data-intervalid', intervalFn(img, onloadfn));
+            img.setAttribute('data-intervalid', intervalFn(img));
          } else {
             noscript.parentElement.replaceChild(img, noscript);
             img.onload = onloadfn;
