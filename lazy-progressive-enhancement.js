@@ -35,15 +35,15 @@ function loadMedia(media, onloadfn, scroll) {
    function intervalFn (el, onloadfn) {
       return window.setInterval(function() {
          var rect = el.getBoundingClientRect(),
-             offset = 150;
+             offset = 300;
          if (
             (rect.bottom >= -offset && rect.top - window.innerHeight < offset) &&
             (rect.right >= -offset && rect.left - window.innerWidth < offset)
          ) {
             window.clearInterval(el.getAttribute('data-intervalid'));
+            el.onload = onloadfn;
             el.srcset = el.getAttribute('data-srcset');
             el.src = el.getAttribute('data-src');
-            onloadfn && onloadfn();
          }
       }, 100);
    }
@@ -65,7 +65,7 @@ function loadMedia(media, onloadfn, scroll) {
             img.setAttribute('data-srcset', img.getAttribute('srcset') || '');
             img.src = img.srcset = tempSrc;
             noscript.parentElement.replaceChild(img, noscript);
-            img.setAttribute('data-intervalid', intervalFn(img, onloadfn && onloadfn.bind(img)));
+            img.setAttribute('data-intervalid', intervalFn(img, onloadfn));
          } else {
             img.onload = onloadfn;
             noscript.parentElement.replaceChild(img, noscript);
