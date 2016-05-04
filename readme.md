@@ -1,4 +1,4 @@
-# lazy-progressive-enhancement.js
+# Lazy Progressive Enhancement
 
 ### [Download, copy-paste, whatever ;)](lazy-progressive-enhancement.min.js)
 
@@ -21,22 +21,22 @@ loadMedia(
 
 **scroll:** *Boolean (optional)* – loads image when visible
 
-Most lazyload image libraries work by having the user specify an image's source file in a data-attribute, which sets its `src` after a page is loaded. This is [invalid HTML](https://www.w3.org/TR/html5/embedded-content-0.html#attr-img-src) and disregards users who don't have a javascript-enabled browser.
-
-### Benefits of lazy-progressive-enhancement.js
+### Benefits of Lazy Progressive Enhancement
  - Designed to enforce progressive enhancement and valid HTML.
  - Written in pure JS -- no dependencies.
  - Not a framework, not a library, just a function.
  - Also works on iframes.
 
+Other lazy loaders promote [invalid HTML](https://www.w3.org/TR/html5/embedded-content-0.html#attr-img-src) by omitting the src attribute, or aren't compatible for users without javascript.
+
 ### Contents
- - [Basic usage](#basic-usage)
- - [Load specific images](#load-specific-images)
- - [onload function](#onload-function)
- - [Scroll-based loading](#scroll-based-loading)
+ - [Basic Usage](#basic-usage)
+ - [Load Specific Images](#load-specific-images)
+ - [onload Function](#onload-function)
+ - [Scroll-Based Loading](#scroll-based-loading)
  - [Build](#build)
 
-## Basic usage
+## Basic Usage
 
 By default, the function targets every `noscript` element on the page.
 
@@ -57,7 +57,7 @@ loadMedia();
 <img alt="hello!" src="...">
 ```
 
-## Load specific images
+## Load Specific Images
 
 You can specify what images to load by passing in either
  1. A CSS selector string (use if calling the function before `DOMContentLoaded`)
@@ -81,7 +81,7 @@ loadMedia('#this-one');
 <noscript id="not-this-one"><img src="..."></noscript>
 ```
 
-## onload function
+## onload Function
 
 You can hook an onload function for every loaded image
 
@@ -97,7 +97,7 @@ loadMedia(null, function() {
 <img class="loaded" src="...">
 ```
 
-## Scroll-based loading
+## Scroll-Based Loading
 
 There's a default function to load images when they're scrolled into view.
 
