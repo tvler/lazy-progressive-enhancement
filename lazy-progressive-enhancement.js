@@ -30,11 +30,11 @@ function loadMedia(media, onloadfn, scroll) {
      replaceNoscript(media);
    }
 
-    if (document.readyState !== 'loading') {
-        onwheneva();
-    } else {
-        document.addEventListener('DOMContentLoaded', onwheneva);
-    }
+   if (document.readyState !== 'loading') {
+      onwheneva();
+   } else {
+      document.addEventListener('DOMContentLoaded', onwheneva);
+   }
 
    function parseMedia(media) {
       if (media == null) {
