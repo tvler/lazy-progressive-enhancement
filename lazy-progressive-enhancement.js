@@ -21,6 +21,21 @@ function loadMedia(media, onloadfn, scroll) {
 
    'use strict';
 
+   var intervals = [],
+
+   // Fires replaceNoscript either on DOMContentLoaded or after
+   // @see https://gist.github.com/tvler/8fd53d11ed775ebc72419bb5d96b8696
+   // @author tvler
+   onwheneva = function() {
+     replaceNoscript(media);
+   }
+
+    if (document.readyState !== 'loading') {
+        onwheneva();
+    } else {
+        document.addEventListener('DOMContentLoaded', onwheneva);
+    }
+
    function parseMedia(media) {
       if (media == null) {
          media = document.querySelectorAll('noscript');
@@ -40,7 +55,7 @@ function loadMedia(media, onloadfn, scroll) {
          (rect.bottom >= -offset && rect.top - window.innerHeight < offset) &&
          (rect.right >= -offset && rect.left - window.innerWidth < offset)
       ) {
-         clearInterval(img.getAttribute('data-intervalid'));
+         clearInterval(intervals[src]);
          img.onload = onloadfn;
          srcset && (img.srcset = srcset);
          img.src = src;
@@ -65,24 +80,11 @@ function loadMedia(media, onloadfn, scroll) {
             img.src = tempSrc;
             img.removeAttribute('srcset');
             noscript.parentElement.replaceChild(img, noscript);
-            img.setAttribute('data-intervalid', setInterval(scrollVisibility, 100, img, src, srcset));
+            intervals[src] = setInterval(scrollVisibility, 100, img, src, srcset);
          } else {
             noscript.parentElement.replaceChild(img, noscript);
             img.onload = onloadfn;
          }
       }
-   }
-
-    // Fires replaceNoscript either on DOMContentLoaded or after
-    // @see https://gist.github.com/tvler/8fd53d11ed775ebc72419bb5d96b8696
-    // @author tvler
-    var onwheneva = function() {
-      replaceNoscript(media);
-    }
-
-   if (document.readyState !== 'loading') {
-      onwheneva();
-   } else {
-      document.addEventListener('DOMContentLoaded', onwheneva);
    }
 }
