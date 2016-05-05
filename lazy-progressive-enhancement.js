@@ -50,14 +50,14 @@ function loadMedia(media, onloadfn, scroll) {
    }
 
    function replaceNoscript(media) {
-      var noscript, img, src, srcset,
+      var noscript, img, src, srcset, media = parseMedia(media), i = 0,
 
       // Smallest data URI image possible for a transparent image
       // @see http://stackoverflow.com/questions/6018611/smallest-data-uri-image-possible-for-a-transparent-image
       // @author layke
       tempSrc = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 
-      for (var i = 0; i < (media = parseMedia(media)).length; i++) {
+      for (; i < media.length; i++) {
          // Create an img element in a DOMParser so the image won't load.
          img = (new DOMParser()).parseFromString((noscript = media[i]).textContent, 'text/html').body.firstElementChild;
 
