@@ -33,20 +33,18 @@ function loadMedia(media, onloadfn, scroll) {
       return media;
    }
 
-   function intervalFn (el, src, srcset) {
-      return window.setInterval(function() {
-         var rect = el.getBoundingClientRect(),
-             offset = 300;
-         if (
-            (rect.bottom >= -offset && rect.top - window.innerHeight < offset) &&
-            (rect.right >= -offset && rect.left - window.innerWidth < offset)
-         ) {
-            window.clearInterval(el.getAttribute('data-intervalid'));
-            el.onload = onloadfn;
-            srcset && (el.srcset = srcset);
-            el.src = src;
-         }
-      }, 100);
+   function scrollVisibility(img, src, srcset) {
+      var rect = img.getBoundingClientRect(),
+          offset = 300;
+      if (
+         (rect.bottom >= -offset && rect.top - window.innerHeight < offset) &&
+         (rect.right >= -offset && rect.left - window.innerWidth < offset)
+      ) {
+         clearInterval(img.getAttribute('data-intervalid'));
+         img.onload = onloadfn;
+         srcset && (img.srcset = srcset);
+         img.src = src;
+      }
    }
 
    function replaceNoscript(media) {
@@ -67,7 +65,7 @@ function loadMedia(media, onloadfn, scroll) {
             img.src = tempSrc;
             img.removeAttribute('srcset');
             noscript.parentElement.replaceChild(img, noscript);
-            img.setAttribute('data-intervalid', intervalFn(img, src, srcset));
+            img.setAttribute('data-intervalid', setInterval(scrollVisibility, 100, img, src, srcset));
          } else {
             noscript.parentElement.replaceChild(img, noscript);
             img.onload = onloadfn;
