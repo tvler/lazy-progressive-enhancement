@@ -57,9 +57,9 @@ function loadMedia(media, onloadfn, scroll) {
       // @author layke
       tempSrc = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 
-      for (; i < media.length; i++) {
+      while (noscript = media[i++]) {
          // Create an img element in a DOMParser so the image won't load.
-         img = (new DOMParser()).parseFromString((noscript = media[i]).textContent, 'text/html').body.firstElementChild;
+         img = (new DOMParser()).parseFromString((noscript).textContent, 'text/html').body.firstElementChild;
 
          if (scroll) {
             src = img.getAttribute('src');
