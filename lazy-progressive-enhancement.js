@@ -28,13 +28,10 @@ function loadMedia(media, onloadfn, scroll) {
    // @author tvler
    onwheneva = function() {
      replaceNoscript(media);
-   }
+  };
 
-   if (document.readyState !== 'loading') {
-      onwheneva();
-   } else {
-      document.addEventListener('DOMContentLoaded', onwheneva);
-   }
+   document.readyState !== 'loading' ? onwheneva() :
+    document.addEventListener('DOMContentLoaded', onwheneva);
 
    function scrollVisibility(img, src, srcset) {
       var rect = img.getBoundingClientRect(),
