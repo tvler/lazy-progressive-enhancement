@@ -36,18 +36,6 @@ function loadMedia(media, onloadfn, scroll) {
       document.addEventListener('DOMContentLoaded', onwheneva);
    }
 
-   function parseMedia(media) {
-      if (media == null) {
-         media = document.querySelectorAll('noscript');
-      } else if (media instanceof Element) {
-         media = [media];
-      } else if (typeof media === 'string') {
-         media = document.querySelectorAll(media);
-      }
-
-      return media;
-   }
-
    function scrollVisibility(img, src, srcset) {
       var rect = img.getBoundingClientRect(),
           offset = 300;
@@ -63,12 +51,20 @@ function loadMedia(media, onloadfn, scroll) {
    }
 
    function replaceNoscript(media) {
-      var noscript, img, src, srcset, media = parseMedia(media), i = 0,
+      var noscript, img, src, srcset, i = 0,
 
       // Smallest data URI image possible for a transparent image
       // @see http://stackoverflow.com/questions/6018611/smallest-data-uri-image-possible-for-a-transparent-image
       // @author layke
       tempSrc = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+      if (media == null) {
+         media = document.querySelectorAll('noscript');
+      } else if (media instanceof Element) {
+         media = [media];
+      } else {
+         media = document.querySelectorAll(media);
+      }
 
       while (noscript = media[i++]) {
          // Create an img element in a DOMParser so the image won't load.
@@ -82,8 +78,8 @@ function loadMedia(media, onloadfn, scroll) {
             noscript.parentElement.replaceChild(img, noscript);
             intervals[src] = setInterval(scrollVisibility, 100, img, src, srcset);
          } else {
-            noscript.parentElement.replaceChild(img, noscript);
             img.onload = onloadfn;
+            noscript.parentElement.replaceChild(img, noscript);
          }
       }
    }
