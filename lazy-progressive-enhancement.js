@@ -28,7 +28,7 @@ function loadMedia(media, onloadfn, scroll) {
    // @author tvler
    onwheneva = function() {
      replaceNoscript(media);
-  };
+   };
 
    document.readyState !== 'loading' ? onwheneva() :
     document.addEventListener('DOMContentLoaded', onwheneva);
