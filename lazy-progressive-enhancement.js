@@ -56,11 +56,11 @@ function loadMedia(media, onloadfn, scroll) {
       tempSrc = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 
       if (media == null) {
-         media = document.querySelectorAll('noscript');
+         media = document.body.querySelectorAll('noscript');
       } else if (media instanceof Element) {
          media = [media];
-      } else {
-         media = document.querySelectorAll(media);
+      } else if (typeof media === 'string') {
+         media = document.body.querySelectorAll(media);
       }
 
       while (noscript = media[i++]) {
