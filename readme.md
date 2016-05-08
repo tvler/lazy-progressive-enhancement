@@ -26,7 +26,7 @@ loadMedia(
  - Written in pure JS -- no dependencies.
  - Not a framework, not a library, just a function.
  - Works with responsive `srcset` images.
- - Works with on iframes.
+ - Works with iframes.
 
 Other lazy loaders promote [invalid HTML](https://www.w3.org/TR/html5/embedded-content-0.html#attr-img-src) by omitting the src attribute, or aren't compatible for users without javascript.
 
