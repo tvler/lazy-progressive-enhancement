@@ -41,12 +41,15 @@ section {
 
 h1 {
    font-size: 20px;
+   font-weight: 300;
+   font-style: italic;
    color: #333;
    display: inline-block;
 }
 
 h2 {
    font-size: 17px;
+   font-weight: 500;
    position: relative;
    color: #333;
    text-decoration: none;
@@ -61,12 +64,6 @@ a:focus h2, a:hover h2 {
    outline: none;
 }
 
-a h2::before {
-   content: '#';
-   color: #0027FF;
-   padding-right: 6px;
-}
-
 li {
    margin: 10px 0;
 }
@@ -77,12 +74,17 @@ a {
    cursor: pointer;
    position: relative;
    outline: none;
-   font-weight: 600;
+   font-weight: 500;
 }
 
 .title-link {
-   display: block;
+   display: inline-block;
    padding-top: 60px;
+   margin-right: 20px;
+}
+
+iframe {
+   vertical-align: text-bottom;
 }
 
 .js-run {
@@ -122,8 +124,7 @@ ul {
 }
 
 #contents {
-   background: #F4F3F3;
-   padding: 10px 20px 10px 40px;
+   padding: 0 20px 0 40px;
    border-radius: 8px;
 }
 
@@ -228,5 +229,13 @@ li a {
 @media (max-width: 800px) {
    section:first-child .title-link {
       padding-top: 0;
+   }
+
+   .title-link {
+      display: block;
+   }
+   
+   h1 {
+      font-size: 18px;
    }
 }
