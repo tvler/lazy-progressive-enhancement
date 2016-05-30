@@ -42,7 +42,7 @@
       <a href="#basic" class="title-link" id="basic"><h2>Basic Usage</h2></a>
       <p>Declare a lazy image like this:</p>
       <pre>&lt;noscript&gt;
-  &lt;img src="..."&gt;
+  &lt;img …&gt;
 &lt;/noscript&gt;</pre>
       <figure>
          <noscript class="ex-1"><img alt="lazyloading image" src="img/img1.gif"/></noscript>
@@ -54,7 +54,7 @@
             <pre class="inline">loadMedia()</pre><a data-run="ex-1" class="js-run">Run</a>
          </div>
          <strong>Output:</strong>
-         <pre class="inline">&lt;img src="..."&gt;</pre>
+         <pre class="inline">&lt;img …&gt;</pre>
       </div>
       <p>By default, the function targets every <i>noscript</i> element on the page.</p>
       <p>Any attributes the noscript image has (<i>srcset</i>, <i>class</i>, <i>id</i>, <i>alt</i>, etc) are kept.</p>
@@ -82,11 +82,11 @@
       </ol>
       <strong>Ex:</strong>
       <pre>&lt;noscript id="this-one"&gt;
-   &lt;img src="..."&gt;
+   &lt;img …&gt;
 &lt;/noscript&gt;
 
 &lt;noscript id="that-one"&gt;
-   &lt;img src="..."&gt;
+   &lt;img …&gt;
 &lt;/noscript&gt;</pre>
       <div class="fig-col">
          <figure>
@@ -104,10 +104,10 @@
             <pre class="inline">loadMedia('#this-one')</pre><a data-run="ex-2" class="js-run">Run</a>
          </div>
          <strong>Output:</strong>
-         <pre class="inline">&lt;img src="..."&gt;
+         <pre class="inline">&lt;img …&gt;
 
 &lt;noscript id="that-one"&gt;
-   &lt;img src="..."&gt;
+   &lt;img …&gt;
 &lt;/noscript&gt;</pre>
 
          <strong>Run:</strong>
@@ -115,8 +115,8 @@
             <pre class="inline">loadMedia('#that-one')</pre><a data-run="ex-3" class="js-run">Run</a>
          </div>
          <strong>Output:</strong>
-         <pre class="inline">&lt;img src="..."&gt;
-&lt;img src="..."&gt;</pre>
+         <pre class="inline">&lt;img …&gt;
+&lt;img …&gt;</pre>
       </div>
    </section>
 
@@ -129,7 +129,7 @@
    this.classList.add('loaded')
 })</pre>
       <strong>Output:</strong>
-      <pre>&lt;img class="loaded" src="..."&gt;</pre>
+      <pre>&lt;img class="loaded" …&gt;</pre>
    </section>
 
    <section>
