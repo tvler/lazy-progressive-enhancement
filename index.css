@@ -111,6 +111,11 @@ pre, i {
    border-left: 4px solid #D9DEFA;
 }
 
+.separate-code {
+   border: none;
+   border-bottom: 2px solid #dadada;
+}
+
 ul {
    padding-left: 40px;
 
