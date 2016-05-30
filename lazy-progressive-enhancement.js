@@ -57,7 +57,7 @@ function loadMedia(media, onloadfn, scroll) {
 
       if (media == null || typeof media === 'string') {
          media = document.body.querySelectorAll(media || 'noscript')
-      } else if (media instanceof Element) {
+      } else if (!media.length) {
          media = [media]
       }
 
