@@ -21,12 +21,12 @@ function loadMedia(media, onloadfn, scroll) {
 
    'use strict'
 
-   var intervals = [],
+   var intervals = []
 
    // Fires replaceNoscript either on DOMContentLoaded or after
    // @see https://gist.github.com/tvler/8fd53d11ed775ebc72419bb5d96b8696
    // @author tvler
-   onwheneva = function() {
+   function onwheneva() {
      replaceNoscript(media)
    }
 
