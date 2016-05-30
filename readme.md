@@ -49,7 +49,7 @@ Any attributes the image has in noscript (`class` / `id` / `alt` / etc) are kept
 
 `HTML`
 ```html
-<noscript><img alt="hello!" src="..."></noscript>
+<noscript><img alt="hello!" …></noscript>
 ```
 
 `JS`
@@ -59,7 +59,7 @@ loadMedia()
 
 `End result HTML`
 ```html
-<img alt="hello!" src="...">
+<img alt="hello!" …>
 ```
 
 ## Load Specific Images
@@ -71,8 +71,8 @@ You can specify what images to load by passing in either
 
 `HTML`
 ```html
-<noscript id="this-one"><img src="..."></noscript>
-<noscript id="not-this-one"><img src="..."></noscript>
+<noscript id="this-one"><img …></noscript>
+<noscript id="not-this-one"><img …></noscript>
 ```
 
 `JS`
@@ -82,8 +82,8 @@ loadMedia('#this-one')
 
 `End result HTML`
 ```html
-<img src="...">
-<noscript id="not-this-one"><img src="..."></noscript>
+<img …>
+<noscript id="not-this-one"><img …></noscript>
 ```
 
 ## onload Function
@@ -99,7 +99,7 @@ loadMedia(null, function() {
 
 `End result HTML`
 ```html
-<img class="loaded" src="...">
+<img class="loaded" …>
 ```
 
 ## Scroll-Based Loading
