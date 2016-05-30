@@ -8,6 +8,10 @@ A lazy image loader designed to enforce progressive enhancement and valid HTML.
 
 Not a framework, not a library, just a function.
 
+``` html
+<noscript><img …></noscript>
+```
+
 ``` js
 loadMedia(
    element,
