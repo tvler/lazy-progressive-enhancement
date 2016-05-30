@@ -55,12 +55,10 @@ function loadMedia(media, onloadfn, scroll) {
       // @author layke
       tempSrc = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
 
-      if (media == null) {
-         media = document.body.querySelectorAll('noscript')
+      if (media == null || typeof media === 'string') {
+         media = document.body.querySelectorAll(media || 'noscript')
       } else if (media instanceof Element) {
          media = [media]
-      } else if (typeof media === 'string') {
-         media = document.body.querySelectorAll(media)
       }
 
       while (noscript = media[i++]) {
