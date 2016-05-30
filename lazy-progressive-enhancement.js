@@ -19,7 +19,7 @@ Copyright (c) 2016 Tyler Deitz
  */
 function loadMedia(media, onloadfn, scroll) {
 
-   'use strict';
+   'use strict'
 
    var intervals = [],
 
@@ -27,23 +27,23 @@ function loadMedia(media, onloadfn, scroll) {
    // @see https://gist.github.com/tvler/8fd53d11ed775ebc72419bb5d96b8696
    // @author tvler
    onwheneva = function() {
-     replaceNoscript(media);
-   };
+     replaceNoscript(media)
+   }
 
    document.readyState !== 'loading' ? onwheneva() :
-    document.addEventListener('DOMContentLoaded', onwheneva);
+    document.addEventListener('DOMContentLoaded', onwheneva)
 
    function scrollVisibility(img, src, srcset) {
       var rect = img.getBoundingClientRect(),
-          offset = 300;
+          offset = 300
       if (
          (rect.bottom >= -offset && rect.top - window.innerHeight < offset) &&
          (rect.right >= -offset && rect.left - window.innerWidth < offset)
       ) {
-         clearInterval(intervals[src]);
-         img.onload = onloadfn;
-         srcset && (img.srcset = srcset);
-         img.src = src;
+         clearInterval(intervals[src])
+         img.onload = onloadfn
+         srcset && (img.srcset = srcset)
+         img.src = src
       }
    }
 
@@ -53,30 +53,30 @@ function loadMedia(media, onloadfn, scroll) {
       // Smallest data URI image possible for a transparent image
       // @see http://stackoverflow.com/questions/6018611/smallest-data-uri-image-possible-for-a-transparent-image
       // @author layke
-      tempSrc = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+      tempSrc = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
 
       if (media == null) {
-         media = document.body.querySelectorAll('noscript');
+         media = document.body.querySelectorAll('noscript')
       } else if (media instanceof Element) {
-         media = [media];
+         media = [media]
       } else if (typeof media === 'string') {
-         media = document.body.querySelectorAll(media);
+         media = document.body.querySelectorAll(media)
       }
 
       while (noscript = media[i++]) {
          // Create an img element in a DOMParser so the image won't load.
-         img = (new DOMParser()).parseFromString(noscript.textContent, 'text/html').body.firstChild;
+         img = (new DOMParser()).parseFromString(noscript.textContent, 'text/html').body.firstChild
 
          if (scroll) {
-            src = img.getAttribute('src');
-            srcset = img.getAttribute('srcset');
-            img.src = tempSrc;
-            img.removeAttribute('srcset');
-            noscript.parentElement.replaceChild(img, noscript);
-            intervals[src] = setInterval(scrollVisibility, 100, img, src, srcset);
+            src = img.getAttribute('src')
+            srcset = img.getAttribute('srcset')
+            img.src = tempSrc
+            img.removeAttribute('srcset')
+            noscript.parentElement.replaceChild(img, noscript)
+            intervals[src] = setInterval(scrollVisibility, 100, img, src, srcset)
          } else {
-            img.onload = onloadfn;
-            noscript.parentElement.replaceChild(img, noscript);
+            img.onload = onloadfn
+            noscript.parentElement.replaceChild(img, noscript)
          }
       }
    }
