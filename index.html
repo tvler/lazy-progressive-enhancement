@@ -200,6 +200,10 @@ modalSection.onclick = function(ev) {
       body.classList.remove('modal-on')
 }
 
+modalCode.onclick = function(ev) {
+   ev.stopPropagation()
+}
+
 document.onkeydown = function(ev) {
    if (ev.keyCode == 27)
       body.classList.remove('modal-on')
