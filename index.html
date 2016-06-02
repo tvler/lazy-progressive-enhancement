@@ -180,39 +180,39 @@ var rightSection = document.querySelector('.right'),
     modalSection = document.querySelector('.modal'),
     modalCode = modalSection.querySelector('figure'),
     run = document.querySelectorAll('[data-run]'),
+    body = document.body,
     rightSectionStyle = rightSection.style,
     mobileWidth = 780,
     marginTop = .2,
     transform = 0,
     scroll = 0,
     i = 0,
-    theCodeHeight, windowHeight, fixedHeight,
+    windowWidth, windowHeight, bodyHeight,
+    theCodeHeight, fixedHeight,
     oldScroll, oldTransform
 
 theCode.onclick = function() {
-   document.body.classList.add('modal-on')
+   body.classList.add('modal-on')
 }
 
 modalSection.onclick = function(ev) {
    if (ev.target !== modalCode)
-      document.body.classList.remove('modal-on')
+      body.classList.remove('modal-on')
 }
-
-modalCode.addEventListener('touchstart', function(e){
-  e.preventDefault();
-});
 
 document.onkeydown = function(ev) {
    if (ev.keyCode == 27)
-      document.body.classList.remove('modal-on')
+      body.classList.remove('modal-on')
 }
 
 window.onresize = updateDimensions
 
 function updateDimensions() {
    theCodeHeight = theCode.offsetHeight
+   windowWidth = window.innerWidth
    windowHeight = window.innerHeight
    fixedHeight = getFixedHeight()
+   bodyHeight = body.scrollHeight
    if (window.innerWidth > 780) {
       window.onscroll = scrollCode
       window.onscroll()
@@ -229,7 +229,10 @@ function scrollCode() {
    oldScroll = scroll
    oldTransform = transform
    scroll = -window.scrollY
-   if (window.innerWidth <= 780 || scroll === oldScroll) {
+   if (windowWidth <= 780                          // mobile view
+       || scroll === oldScroll                     // same scroll position
+       || scroll > 0                               // safari momentum scroll thing
+       || -scroll + windowHeight > bodyHeight) {   // safari momentum scroll thing
       return
    }
    transform += scroll - oldScroll
