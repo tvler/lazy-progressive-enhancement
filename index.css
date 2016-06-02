@@ -253,6 +253,7 @@ li a {
    position: fixed;
    will-change: transform;
    transform: translateY(0);
+   left: 60%;
 }
 
 .right .button {
