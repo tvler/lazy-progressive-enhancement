@@ -21,11 +21,11 @@ progress,sub,sup{vertical-align:baseline}button,hr,input{overflow:visible}html{f
 body {
    font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue","Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Open Sans","Helvetica","Arial",sans-serif;
    text-rendering: optimizeLegibility;
+   display: flex;
    position: relative;
-   margin: 20px auto;
+   margin: 0;
    background: #FAFAFA;
    color: #333;
-   max-width: 1200px;
 }
 
 section {
@@ -34,14 +34,14 @@ section {
    margin-left: auto;
    margin-right: auto;
    padding-left: 30px;
-   padding-right: 30px;
+   padding-right: 60px;
    line-height: 1.3em;
    font-size: 14px;
 }
 
 h1 {
    font-size: 20px;
-   font-weight: 300;
+   font-weight: 400;
    font-style: italic;
    color: #333;
    display: inline-block;
@@ -87,30 +87,38 @@ iframe {
    vertical-align: text-bottom;
 }
 
-.js-run {
-   padding: 10px 4px;
-   margin-left: 18px;
-}
-
-.js-run::before {
-   content: '→';
-   display: inline;
-   text-decoration: none;
-   position: absolute;
-   color: #333;
-   font-weight: 600;
-   font-size: 16px;
-   right: 100%;
-   top: 9px;
-}
-
-pre, i {
-   font: 13px/1.2em 'Source Code Pro', monospace;
-   background: linear-gradient(to right, #F4F3F3, rgba(241, 240, 240, 0) 80%);
-   padding: 10px 20px;
-   color: #4D4D4D;
+.button {
+   display: inline-block;
+   padding: 10px 18px;
    border-radius: 8px;
-   border-left: 4px solid #D9DEFA;
+   background: #2f4efe;
+   color: white;
+   vertical-align: middle;
+   text-decoration: none;
+   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nowrap .button {
+   margin-bottom: -6px;
+   margin-left: -15px;
+}
+
+pre {
+   margin: 0;
+}
+
+figure.highlight, i {
+   font: 13px/1.2em 'Source Code Pro', monospace;
+   background: white;
+   border-radius: 15px;
+}
+
+figure.highlight {
+   display: block;
+   width: auto;
+   height: auto;
+   padding: 10px 20px;
+   margin: 14px 0;
 }
 
 .separate-code {
@@ -120,7 +128,6 @@ pre, i {
 
 ul {
    padding-left: 40px;
-
 }
 
 #contents {
@@ -136,14 +143,18 @@ ul {
    margin-right: 0;
 }
 
-pre.inline, .inline pre, i {
-   padding: 2px 6px;
-   background: #F4F3F3;
-   border: none;
+.inline figure.highlight {
+   display: inline-block;
+   margin: 0;
 }
 
 .nowrap {
    white-space: nowrap;
+   line-height: 15px;
+}
+
+.nowrap figure.highlight, .nowrap .button {
+   height: 15px;
 }
 
 .output strong:first-child {
@@ -162,11 +173,14 @@ pre.inline, .inline pre, i {
    margin-left: 0;
 }
 
+figure, i {
+   box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
+}
+
 figure {
    width: 237px;
    height: 158px;
    background: white;
-   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.13);
    display: inline-block;
    vertical-align: middle;
    position: relative;
@@ -226,16 +240,200 @@ li a {
    font-weight: 600;
 }
 
-@media (max-width: 800px) {
-   section:first-child .title-link {
-      padding-top: 0;
-   }
+.left {
+   padding-bottom: 60px;
+   flex-shrink: 0;
+   width: 60%;
+   min-width: 540px;
+}
 
+.right {
+   margin-top: 20vh;
+   width: 100%;
+   position: fixed;
+   will-change: transform;
+   transform: translateY(0);
+}
+
+.right .button {
+   margin-left: 15px;
+   margin-bottom: -6px;
+}
+
+.right section, .modal section {
+   max-width: none;
+   padding: 0;
+}
+
+.right figure, .modal figure {
+   display: inline-block;
+   padding: 30px;
+   margin: 0;
+   cursor: pointer;
+}
+
+.right pre, .modal pre {
+   border: none;
+   background: none;
+   font-size: 14px;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+}
+
+body::before {
+   content: '';
+   z-index: 1;
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: inherit;
+   opacity: 0;
+   pointer-events: none;
+   transition: .5s opacity;
+}
+
+body.modal-on {
+   overflow: hidden;
+   cursor: pointer;
+}
+
+body.modal-on::before {
+   opacity: .95;
+   pointer-events: all;
+}
+
+body.modal-on .modal {
+   transform: initial;
+   opacity: 1;
+   overflow: scroll;
+   pointer-events: all;
+}
+
+body.modal-on .right {
+   will-change: initial;
+}
+
+.modal {
+   z-index: 2;
+   position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   padding: 30px;
+   padding-right: 0;
+   overflow: hidden;
+   -webkit-overflow-scrolling: touch;
+   pointer-events: none;
+   transform: translateY(120px);
+   opacity: 0;
+   transition: .3s transform, .3s opacity;
+}
+
+.modal section {
+   text-align: center;
+}
+
+.modal figure {
+   text-align: left;
+   margin-right: 30px;
+   cursor: auto;
+}
+
+@media (max-width: 780px) {
    .title-link {
       display: block;
    }
-   
+
    h1 {
       font-size: 18px;
    }
+
+   section {
+      padding-right: 30px;
+   }
+
+   .left {
+      width: 100%;
+      min-width: 0;
+   }
+
+   .right {
+      display: none;
+      will-change: initial;
+      transform: none;
+   }
 }
+
+.highlight { background-color: #ffffcc }
+.highlight .c { color: #586E75 } /* Comment */
+.highlight .err { color: #93A1A1 } /* Error */
+.highlight .g { color: #93A1A1 } /* Generic */
+.highlight .k { color: #859900 } /* Keyword */
+.highlight .l { color: #93A1A1 } /* Literal */
+.highlight .n { color: #93A1A1 } /* Name */
+.highlight .o { color: #859900 } /* Operator */
+.highlight .x { color: #CB4B16 } /* Other */
+.highlight .p { color: #93A1A1 } /* Punctuation */
+.highlight .cm { color: #93A1A1 } /* Comment.Multiline */
+.highlight .cp { color: #859900 } /* Comment.Preproc */
+.highlight .c1 { color: #93A1A1 } /* Comment.Single */
+.highlight .cs { color: #859900 } /* Comment.Special */
+.highlight .gd { color: #2AA198 } /* Generic.Deleted */
+.highlight .ge { color: #93A1A1; font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #DC322F } /* Generic.Error */
+.highlight .gh { color: #CB4B16 } /* Generic.Heading */
+.highlight .gi { color: #859900 } /* Generic.Inserted */
+.highlight .go { color: #93A1A1 } /* Generic.Output */
+.highlight .gp { color: #93A1A1 } /* Generic.Prompt */
+.highlight .gs { color: #93A1A1; font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #CB4B16 } /* Generic.Subheading */
+.highlight .gt { color: #93A1A1 } /* Generic.Traceback */
+.highlight .kc { color: #CB4B16 } /* Keyword.Constant */
+.highlight .kd { color: #268BD2 } /* Keyword.Declaration */
+.highlight .kn { color: #859900 } /* Keyword.Namespace */
+.highlight .kp { color: #859900 } /* Keyword.Pseudo */
+.highlight .kr { color: #268BD2 } /* Keyword.Reserved */
+.highlight .kt { color: #DC322F } /* Keyword.Type */
+.highlight .ld { color: #93A1A1 } /* Literal.Date */
+.highlight .m { color: #2AA198 } /* Literal.Number */
+.highlight .s { color: #2AA198 } /* Literal.String */
+.highlight .na { color: #93A1A1 } /* Name.Attribute */
+.highlight .nb { color: #B58900 } /* Name.Builtin */
+.highlight .nc { color: #268BD2 } /* Name.Class */
+.highlight .no { color: #CB4B16 } /* Name.Constant */
+.highlight .nd { color: #268BD2 } /* Name.Decorator */
+.highlight .ni { color: #CB4B16 } /* Name.Entity */
+.highlight .ne { color: #CB4B16 } /* Name.Exception */
+.highlight .nf { color: #268BD2 } /* Name.Function */
+.highlight .nl { color: #93A1A1 } /* Name.Label */
+.highlight .nn { color: #93A1A1 } /* Name.Namespace */
+.highlight .nx { color: #586E75  } /* Name.Other */
+.highlight .py { color: #93A1A1 } /* Name.Property */
+.highlight .nt { color: #268BD2 } /* Name.Tag */
+.highlight .nv { color: #268BD2 } /* Name.Variable */
+.highlight .ow { color: #859900 } /* Operator.Word */
+.highlight .w { color: #93A1A1 } /* Text.Whitespace */
+.highlight .mf { color: #2AA198 } /* Literal.Number.Float */
+.highlight .mh { color: #2AA198 } /* Literal.Number.Hex */
+.highlight .mi { color: #2AA198 } /* Literal.Number.Integer */
+.highlight .mo { color: #2AA198 } /* Literal.Number.Oct */
+.highlight .sb { color: #586E75 } /* Literal.String.Backtick */
+.highlight .sc { color: #2AA198 } /* Literal.String.Char */
+.highlight .sd { color: #93A1A1 } /* Literal.String.Doc */
+.highlight .s2 { color: #2AA198 } /* Literal.String.Double */
+.highlight .se { color: #CB4B16 } /* Literal.String.Escape */
+.highlight .sh { color: #93A1A1 } /* Literal.String.Heredoc */
+.highlight .si { color: #2AA198 } /* Literal.String.Interpol */
+.highlight .sx { color: #2AA198 } /* Literal.String.Other */
+.highlight .sr { color: #DC322F } /* Literal.String.Regex */
+.highlight .s1 { color: #2AA198 } /* Literal.String.Single */
+.highlight .ss { color: #2AA198 } /* Literal.String.Symbol */
+.highlight .bp { color: #268BD2 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #268BD2 } /* Name.Variable.Class */
+.highlight .vg { color: #268BD2 } /* Name.Variable.Global */
+.highlight .vi { color: #268BD2 } /* Name.Variable.Instance */
+.highlight .il { color: #2AA198 } /* Literal.Number.Integer.Long */

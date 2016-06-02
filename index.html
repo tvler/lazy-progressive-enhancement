@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html>
 <head>
@@ -10,167 +12,248 @@
 </head>
 
 <body>
-   <section>
-      <a class="title-link" href="."><h1>Lazy Progressive Enhancement</h1></a>
-      <iframe src="https://ghbtns.com/github-btn.html?user=tvler&repo=lazy-progressive-enhancement&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
-      <p><a href="https://github.com/tvler/lazy-progressive-enhancement">Available on Github</a>, <a href="http://tylerdeitz.co/">built by Tyler</a></p>
-      <p>A lazy image loader designed to enforce progressive enhancement and valid HTML.</p>
-      <p>Not a framework, not a library, just a function (with clean af markup).</p>
-      <pre id="sample-function">&lt;noscript&gt;&lt;img …&gt;&lt;/noscript&gt;
-<hr class="separate-code">loadMedia(
+   <div class="left">
+      <section>
+         <a class="title-link" href="."><h1>Lazy Progressive Enhancement</h1></a>
+         <iframe src="https://ghbtns.com/github-btn.html?user=tvler&repo=lazy-progressive-enhancement&type=star&count=true" frameborder="0" scrolling="0" width="120px" height="20px"></iframe>
+         <p><a href="https://github.com/tvler/lazy-progressive-enhancement">Available on Github</a>, <a href="http://tylerdeitz.co/">built by Tyler</a></p>
+         <p>A lazy image loader designed to enforce progressive enhancement and valid HTML.</p>
+         <p>Not a framework, not a library, just a function (with clean af markup).</p>
+         {% highlight html %}<noscript><img …></noscript>{% endhighlight %}
+         {% highlight js %}loadMedia(
    element,
    onload,
    scroll
-)</pre>
-      <p><strong class="inline">element:</strong> <em>CSS String | NodeList | Element (optional)</em> – loads all images if not set</p>
-      <p><strong class="inline">onload:</strong> <em>Function (optional)</em></p>
-      <p><strong class="inline">scroll:</strong> <em>Boolean (optional)</em> – loads image when visible</p>
-   </section>
+){% endhighlight %}
+         <p><strong class="inline">element:</strong> <em>CSS String | NodeList | Element (optional)</em> – loads all images if not set</p>
+         <p><strong class="inline">onload:</strong> <em>Function (optional)</em></p>
+         <p><strong class="inline">scroll:</strong> <em>Boolean (optional)</em> – loads image when visible</p>
+      </section>
 
-   <section>
-      <a class="title-link" href="#content" id="content"><h2>Contents</h2></a>
-      <ul id="contents">
-         <li><a href='#basic'>Basic Usage</a>
-         <li><a href='#benefits'>Benefits of Lazy Progressive Enhancement</a>
-         <li><a href='#load'>Load Specific Images</a>
-         <li><a href='#onload'>onload Function</a>
-         <li><a href='#scroll'>Scroll-Based Loading</a>
-      </ul>
-   </section>
-
-   <section>
-      <a href="#basic" class="title-link" id="basic"><h2>Basic Usage</h2></a>
-      <p>Declare a lazy image like this:</p>
-      <pre>&lt;noscript&gt;
-  &lt;img …&gt;
-&lt;/noscript&gt;</pre>
-      <figure>
-         <noscript class="ex-1"><img alt="lazyloading image" src="img/img1.gif"/></noscript>
-         <figcaption><a target="_blank" href="http://iancheng.com/#simulations">Source</a></figcaption>
-      </figure>
-      <div class="inline output">
-         <strong>Run:</strong>
-         <div class="nowrap">
-            <pre class="inline">loadMedia()</pre><a data-run="ex-1" class="js-run">Run</a>
-         </div>
-         <strong>Output:</strong>
-         <pre class="inline">&lt;img …&gt;</pre>
-      </div>
-      <p>By default, the function targets every <i>noscript</i> element on the page.</p>
-      <p>Any attributes the noscript image has (<i>srcset</i>, <i>class</i>, <i>id</i>, <i>alt</i>, etc) are kept.</p>
-   </section>
-
-   <section>
-      <a href="#benefits" class="title-link" id="benefits"><h2>Benefits of Lazy Progressive Enhancement</h2></a>
-      <ul>
-         <li>Designed to enforce progressive enhancement and valid HTML.
-         <li>Written in pure JS — no dependencies.
-         <li>Not a framework, not a library, just a function.
-         <li>Works with responsive <i>srcset</i> images.
-         <li>Works with iframes.
-      </ul>
-      <p>Other lazy loaders promote <a target="_blank" href="https://www.w3.org/TR/html5/embedded-content-0.html#attr-img-src">invalid HTML</a> by omitting the src attribute, or aren't compatible for users without javascript.</p>
-   </section>
-
-   <section>
-      <a href="#load" class="title-link" id="load"><h2>Load Specific Images</h2></a>
-      <p>You can specify what images to load by passing a parameter into <i>loadMedia</i> of either</p>
-      <ol>
-         <li>A CSS selector string (use if calling the function before <i>DOMContentLoaded</i>)
-         <li>A NodeList of <i>noscript</i>s (from something like <i>document.querySelectorAll</i>)
-         <li>A singular <i>noscript</i> Element (from something like <i>document.querySelector</i>)
-      </ol>
-      <strong>Ex:</strong>
-      <pre>&lt;noscript id="this-one"&gt;
-   &lt;img …&gt;
-&lt;/noscript&gt;
-
-&lt;noscript id="that-one"&gt;
-   &lt;img …&gt;
-&lt;/noscript&gt;</pre>
-      <div class="fig-col">
+      <section>
+         <a href="#basic" class="title-link" id="basic"><h2>Basic Usage</h2></a>
+         <p>Declare a lazy image like this:</p>
+         {% highlight html %}<noscript><img …></noscript>{% endhighlight %}
          <figure>
-            <noscript class="ex-2"><img alt="lazyloading image" src="img/img6.gif"></noscript>
-            <figcaption><a target="_blank" href="https://www.are.na/block/145825">Source</a></figcaption>
+            <noscript class="ex-1"><img alt="lazyloading image" src="img/img1.gif"/></noscript>
+            <figcaption><a target="_blank" href="http://iancheng.com/#simulations">Source</a></figcaption>
          </figure>
-         <figure>
-            <noscript class="ex-3"><img alt="lazyloading image" src="img/img3.gif"></noscript>
-            <figcaption><a target="_blank" href="https://www.are.na/block/593021">Source</a></figcaption>
-         </figure>
-      </div>
-      <div class="inline output">
-         <strong>Run:</strong>
-         <div class="nowrap">
-            <pre class="inline">loadMedia('#this-one')</pre><a data-run="ex-2" class="js-run">Run</a>
+         <div class="inline output">
+            <strong>Run:</strong>
+            <div class="nowrap">
+               {% highlight js %}loadMedia(){% endhighlight %}
+               <a data-run="ex-1" class="button">Run</a>
+            </div>
+            <strong>Output:</strong>
+            {% highlight html %}<img …>{% endhighlight %}
          </div>
-         <strong>Output:</strong>
-         <pre class="inline">&lt;img …&gt;
+         <p>By default, the function targets every <i>noscript</i> element on the page.</p>
+         <p>Any attributes the noscript image has (<i>srcset</i>, <i>class</i>, <i>id</i>, <i>alt</i>, etc) are kept.</p>
+      </section>
 
-&lt;noscript id="that-one"&gt;
-   &lt;img …&gt;
-&lt;/noscript&gt;</pre>
+      <section>
+         <a href="#benefits" class="title-link" id="benefits"><h2>Benefits of Lazy Progressive Enhancement</h2></a>
+         <ul>
+            <li>Designed to enforce progressive enhancement and valid HTML.
+            <li>Written in pure JS — no dependencies.
+            <li>Not a framework, not a library, just a function.
+            <li>Works with responsive <i>srcset</i> images.
+            <li>Works with iframes.
+         </ul>
+         <p>Other lazy loaders promote <a target="_blank" href="https://www.w3.org/TR/html5/embedded-content-0.html#attr-img-src">invalid HTML</a> by omitting the src attribute, or aren't compatible for users without javascript.</p>
+      </section>
 
-         <strong>Run:</strong>
-         <div class="nowrap">
-            <pre class="inline">loadMedia('#that-one')</pre><a data-run="ex-3" class="js-run">Run</a>
+      <section>
+         <a href="#load" class="title-link" id="load"><h2>Load Specific Images</h2></a>
+         <p>You can specify what images to load by passing a parameter into <i>loadMedia</i> of either</p>
+         <ol>
+            <li>A CSS selector string (use if calling the function before <i>DOMContentLoaded</i>)
+            <li>A NodeList of <i>noscript</i>s (from something like <i>document.querySelectorAll</i>)
+            <li>A singular <i>noscript</i> Element (from something like <i>document.querySelector</i>)
+         </ol>
+         <strong>Ex:</strong>
+         {% highlight html %}<noscript id="this-one">
+   <img …>
+</noscript>
+
+<noscript id="that-one">
+   <img …>
+</noscript>{% endhighlight %}
+         <div class="fig-col">
+            <figure>
+               <noscript class="ex-2"><img alt="lazyloading image" src="img/img6.gif"></noscript>
+               <figcaption><a target="_blank" href="https://www.are.na/block/145825">Source</a></figcaption>
+            </figure>
+            <figure>
+               <noscript class="ex-3"><img alt="lazyloading image" src="img/img3.gif"></noscript>
+               <figcaption><a target="_blank" href="https://www.are.na/block/593021">Source</a></figcaption>
+            </figure>
          </div>
-         <strong>Output:</strong>
-         <pre class="inline">&lt;img …&gt;
-&lt;img …&gt;</pre>
-      </div>
-   </section>
+         <div class="inline output">
+            <strong>Run:</strong>
+            <div class="nowrap">
+               {% highlight js %}loadMedia('#this-one'){% endhighlight %}
+               <a data-run="ex-2" class="button">Run</a>
+            </div>
+            <strong>Output:</strong>
+            {% highlight html %}<img …>
 
-   <section>
-      <a href="#onload" class="title-link" id="onload"><h2>onload Function</h2></a>
-      <p>You can hook an onload function for every loaded image.</p>
-      <p>This may help animate the image by styling it onload.</p>
-      <strong>Run:</strong>
-      <pre>loadMedia(null, function() {
+<noscript id="that-one">
+   <img …>
+</noscript>{% endhighlight %}
+
+            <strong>Run:</strong>
+            <div class="nowrap">
+               {% highlight js %}loadMedia('#that-one'){% endhighlight %}
+               <a data-run="ex-3" class="button">Run</a>
+            </div>
+            <strong>Output:</strong>
+            {% highlight html %}<img …>
+<img …>{% endhighlight %}
+         </div>
+      </section>
+
+      <section>
+         <a href="#onload" class="title-link" id="onload"><h2>onload Function</h2></a>
+         <p>You can hook an onload function for every loaded image.</p>
+         <p>This may help animate the image by styling it onload.</p>
+         <strong>Run:</strong>
+         {% highlight js %}loadMedia(null, function() {
    this.classList.add('loaded')
-})</pre>
-      <strong>Output:</strong>
-      <pre>&lt;img class="loaded" …&gt;</pre>
-   </section>
+}){% endhighlight %}
+         <strong>Output:</strong>
+         {% highlight html %}<img class="loaded" …>{% endhighlight %}
+      </section>
 
-   <section>
-      <a href="#scroll" class="title-link" id="scroll"><h2>Scroll-Based Loading</h2></a>
-      <p>There's a default function to load images when they're scrolled into view.</p>
-      <p>This is a general solution, creating your own scroll-based loading functionality may be more performant.</p>
-      <p>Will be updated to use <a href="https://github.com/WICG/IntersectionObserver">intersection observers</a> when it becomes standardized.
-      <strong>Ex:</strong>
-      <pre>loadMedia(null, null, true)</pre>
-      <figure>
-         <noscript class="ex-4"><img alt="lazyloading image" src="img/img10.gif"></noscript>
-         <figcaption><a target="_blank" href="https://www.are.na/block/364378">Source</a></figcaption>
-      </figure>
-      <figure>
-         <noscript class="ex-4"><img alt="lazyloading image" src="img/img5.gif"></noscript>
-         <figcaption><a target="_blank" href="https://www.are.na/block/182418">Source</a></figcaption>
-      </figure>
-      <figure>
-         <noscript class="ex-4"><img alt="lazyloading image" src="img/img2.gif"></noscript>
-         <figcaption><a target="_blank" href="http://sean-buckelew.tumblr.com/post/125560213405/keep-your-eyes-peeled-for-something-exciting-from">Source</a></figcaption>
-      </figure>
-      <figure>
-         <noscript class="ex-4"><img alt="lazyloading image" src="img/img7.gif"></noscript>
-         <figcaption><a target="_blank" href="https://www.are.na/block/485644">Source</a></figcaption>
-      </figure>
-      <figure>
-         <noscript class="ex-4"><img alt="lazyloading image" src="img/img8.gif"></noscript>
-         <figcaption><a target="_blank" href="https://www.are.na/block/406674">Source</a></figcaption>
-      </figure>
-      <figure>
-         <noscript class="ex-4"><img alt="lazyloading image" src="img/img9.gif"></noscript>
-         <figcaption><a target="_blank" href="https://www.are.na/block/450676">Source</a></figcaption>
-      </figure>
-   </section>
+      <section>
+         <a href="#scroll" class="title-link" id="scroll"><h2>Scroll-Based Loading</h2></a>
+         <p>There's a default function to load images when they're scrolled into view.</p>
+         <p>This is a general solution, creating your own scroll-based loading functionality may be more performant.</p>
+         <p>Will be updated to use <a href="https://github.com/WICG/IntersectionObserver">intersection observers</a> when it becomes standardized.
+         <strong>Ex:</strong>
+         {% highlight js %}loadMedia(null, null, true){% endhighlight %}
+         <figure>
+            <noscript class="ex-4"><img alt="lazyloading image" src="img/img10.gif"></noscript>
+            <figcaption><a target="_blank" href="https://www.are.na/block/364378">Source</a></figcaption>
+         </figure>
+         <figure>
+            <noscript class="ex-4"><img alt="lazyloading image" src="img/img5.gif"></noscript>
+            <figcaption><a target="_blank" href="https://www.are.na/block/182418">Source</a></figcaption>
+         </figure>
+         <figure>
+            <noscript class="ex-4"><img alt="lazyloading image" src="img/img2.gif"></noscript>
+            <figcaption><a target="_blank" href="http://sean-buckelew.tumblr.com/post/125560213405/keep-your-eyes-peeled-for-something-exciting-from">Source</a></figcaption>
+         </figure>
+         <figure>
+            <noscript class="ex-4"><img alt="lazyloading image" src="img/img7.gif"></noscript>
+            <figcaption><a target="_blank" href="https://www.are.na/block/485644">Source</a></figcaption>
+         </figure>
+         <figure>
+            <noscript class="ex-4"><img alt="lazyloading image" src="img/img8.gif"></noscript>
+            <figcaption><a target="_blank" href="https://www.are.na/block/406674">Source</a></figcaption>
+         </figure>
+         <figure>
+            <noscript class="ex-4"><img alt="lazyloading image" src="img/img9.gif"></noscript>
+            <figcaption><a target="_blank" href="https://www.are.na/block/450676">Source</a></figcaption>
+         </figure>
+      </section>
+   </div> <!-- left -->
+
+   <div class="right">
+      <section>
+         <div><a class="button">View code</a></div>
+         {% highlight js %}{% include_relative lazy-progressive-enhancement.js %}{% endhighlight %}
+      </section>
+   </div>
+
+   <div class="modal">
+      <section>
+         {% highlight js %}{% include_relative lazy-progressive-enhancement.js %}{% endhighlight %}
+      </section>
+   </div>
 
 <script>
-   for(var i = 0, run = document.querySelectorAll('[data-run]'); i < run.length; i++) {
-      run[i].onclick = function() {
-         loadMedia('.' + this.dataset.run);
-      };
+'use strict'
+
+var rightSection = document.querySelector('.right'),
+    theCode = rightSection.querySelector('section'),
+    modalSection = document.querySelector('.modal'),
+    modalCode = modalSection.querySelector('figure'),
+    run = document.querySelectorAll('[data-run]'),
+    rightSectionStyle = rightSection.style,
+    mobileWidth = 780,
+    marginTop = .2,
+    transform = 0,
+    scroll = 0,
+    i = 0,
+    theCodeHeight, windowHeight, fixedHeight,
+    oldScroll, oldTransform
+
+theCode.onclick = function() {
+   document.body.classList.add('modal-on')
+}
+
+modalSection.onclick = function(ev) {
+   if (ev.target !== modalCode)
+      document.body.classList.remove('modal-on')
+}
+
+modalCode.addEventListener('touchstart', function(e){
+  e.preventDefault();
+});
+
+document.onkeydown = function(ev) {
+   if (ev.keyCode == 27)
+      document.body.classList.remove('modal-on')
+}
+
+window.onresize = updateDimensions
+
+function updateDimensions() {
+   theCodeHeight = theCode.offsetHeight
+   windowHeight = window.innerHeight
+   fixedHeight = getFixedHeight()
+   if (window.innerWidth > 780) {
+      window.onscroll = scrollCode
+      window.onscroll()
+   } else {
+      window.onscroll = null
    }
-   loadMedia('.ex-4', null, true);
+}
+
+function getFixedHeight() {
+   return -theCodeHeight - windowHeight * (2 * marginTop - 1)
+}
+
+function scrollCode() {
+   oldScroll = scroll
+   oldTransform = transform
+   scroll = -window.scrollY
+   if (window.innerWidth <= 780 || scroll === oldScroll) {
+      return
+   }
+   transform += scroll - oldScroll
+   if (transform < fixedHeight) {
+      transform = fixedHeight
+   } else if (transform > 0) {
+      transform = 0
+   }
+
+   if (oldTransform !== transform) {
+      requestAnimationFrame(function() {
+         rightSectionStyle.transform = 'translateY(' + Math.round(transform) + 'px)'
+      })
+   }
+}
+
+while(run[i]) {
+   run[i++].onclick = function() {
+      loadMedia('.' + this.dataset.run)
+   }
+}
+
+updateDimensions()
+
+loadMedia('.ex-4', null, true)
 </script>
 </body>
