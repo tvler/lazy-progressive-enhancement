@@ -344,7 +344,7 @@ body.modal-on .right {
    cursor: auto;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 850px) {
    .title-link {
       display: block;
    }
