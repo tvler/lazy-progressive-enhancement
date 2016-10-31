@@ -261,9 +261,9 @@ li a {
    margin-bottom: -6px;
 }
 
-.right pre {
-   opacity: .8;
-   filter: blur(5px);
+.right .highlight span {
+   background: currentColor;
+   opacity: .2;
 }
 
 .right section, .modal section {
@@ -283,6 +283,7 @@ li a {
    background: none;
    font-size: 13px;
    margin: 0;
+   line-height: 1.5em;
    padding: 0;
 }
 
