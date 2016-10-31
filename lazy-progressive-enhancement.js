@@ -63,7 +63,7 @@ function loadMedia(media, onloadfn, scroll) {
 
       while (noscript = media[i++]) {
          // Create an img element in a DOMParser so the image won't load.
-         img = (new DOMParser()).parseFromString(noscript.textContent, 'text/html').body.firstChild
+         img = document.importNode((new DOMParser()).parseFromString(noscript.textContent, 'text/html').body.firstChild, true)
          parent = noscript.parentElement
 
          if (scroll) {
