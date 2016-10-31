@@ -108,7 +108,7 @@ pre {
 }
 
 figure.highlight, i {
-   font: 13px/1.2em 'Source Code Pro', monospace;
+   font: 13px/1.5em 'Source Code Pro', monospace;
    background: white;
    border-radius: 15px;
 }
@@ -284,7 +284,6 @@ li a {
    background: none;
    font-size: 13px;
    margin: 0;
-   line-height: 1.5em;
    padding: 0;
 }
 
