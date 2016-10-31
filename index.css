@@ -261,6 +261,11 @@ li a {
    margin-bottom: -6px;
 }
 
+.right pre {
+   opacity: .8;
+   filter: blur(5px);
+}
+
 .right section, .modal section {
    max-width: none;
    padding: 0;
@@ -276,10 +281,9 @@ li a {
 .right pre, .modal pre {
    border: none;
    background: none;
-   font-size: 14px;
+   font-size: 13px;
    margin: 0;
    padding: 0;
-   overflow: hidden;
 }
 
 body::before {
