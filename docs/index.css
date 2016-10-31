@@ -276,6 +276,7 @@ li a {
    padding: 30px;
    margin: 0;
    cursor: pointer;
+   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 }
 
 .right pre, .modal pre {
