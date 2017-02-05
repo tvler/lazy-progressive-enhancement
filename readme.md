@@ -6,7 +6,7 @@
 
 A lazy image loader designed to enforce progressive enhancement and valid HTML.
 
-Not a framework, not a library, just a function.
+Not a framework, not a library, just a function (with clean af markup).
 
 ``` html
 <noscript><img …></noscript>
