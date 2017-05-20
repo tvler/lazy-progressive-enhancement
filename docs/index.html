@@ -179,14 +179,12 @@ var rightSection = document.querySelector('.right'),
     theCode = rightSection.querySelector('section'),
     modalSection = document.querySelector('.modal'),
     modalCode = modalSection.querySelector('figure'),
-    run = document.querySelectorAll('[data-run]'),
     body = document.body,
     rightSectionStyle = rightSection.style,
     mobileWidth = 780,
     marginTop = .2,
     transform = 0,
     scroll = 0,
-    i = 0,
     windowWidth, windowHeight, bodyHeight,
     theCodeHeight, fixedHeight,
     oldScroll, oldTransform
@@ -253,11 +251,11 @@ function scrollCode() {
    }
 }
 
-while (run[i]) {
-   run[i++].onclick = function() {
-      loadMedia('.' + this.dataset.run)
-   }
-}
+document.querySelectorAll('[data-run]').forEach(function(a) {
+   a.addEventListener('click', function(){
+      loadMedia('.' + a.dataset.run)
+   })
+})
 
 updateDimensions()
 
