@@ -30,8 +30,12 @@ function loadMedia(media, onloadfn, scroll) {
      replaceNoscript(media)
    }
 
-   document.readyState !== 'loading' ? onwheneva() :
-    document.addEventListener('DOMContentLoaded', onwheneva)
+   // Here is jQuery "ready" on vanilla
+   function domReady(callback) {
+     document.readyState === "interactive" || document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+   }
+
+   domReady(onwheneva)
 
    function scrollVisibility(img, src, srcset) {
       var rect = img.getBoundingClientRect(),
@@ -40,8 +44,7 @@ function loadMedia(media, onloadfn, scroll) {
          (rect.bottom >= -offset && rect.top - window.innerHeight < offset) &&
          (rect.right >= -offset && rect.left - window.innerWidth < offset)
       ) {
-         clearInterval(intervals[src])
-         img.onload = onloadfn
+         img.addEventListener("load", onloadfn) // Cause onload may be rewritten
          srcset && (img.srcset = srcset)
          img.src = src
       }
@@ -72,11 +75,25 @@ function loadMedia(media, onloadfn, scroll) {
             img.src = tempSrc
             img.removeAttribute('srcset')
             parent.replaceChild(img, noscript)
-            intervals[src] = setInterval(scrollVisibility, 100, img, src, srcset)
+            intervals.push(scrollVisibility.bind(this, img, src, srcset)) // Rather to run functions on scroll than every 100ms, don't you think so?
          } else {
-            img.onload = onloadfn
+            img.addEventListener("load", onloadfn)
             parent.replaceChild(img, noscript)
          }
       }
+   }
+
+   // Load visible images on page load
+   domReady(function() {
+     intervals.forEach(function(picture) {
+         picture();
+     })
+   })
+
+   // Load visible images on scroll
+   document.onscroll = function() {
+     intervals.forEach(function(picture) {
+         picture();
+     })
    }
 }
